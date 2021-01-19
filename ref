@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="http://www.furidamu.org/theme/css/style.less">
+  <script src="http://www.furidamu.org/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="http://www.furidamu.org/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="http://www.furidamu.org/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Julian Schrittwieser">
+  <meta name="description" content="Posts and writings by Julian Schrittwieser">
+
+  <link href="http://www.furidamu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="furidamu Full Atom Feed" />
+
+
+  <title>
+furidamu  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19546551-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="http://www.furidamu.org">
+        <img src="http://www.furidamu.org/images/me.jpg" alt="logo">
+      </a>
+      <h2><a href="http://www.furidamu.org">Julian Schrittwieser</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="http://www.furidamu.org/about/">about</a></li>
+        <li><a href="http://www.furidamu.org/books/">books</a></li>
+        <li><a href="http://www.furidamu.org/contact/">contact</a></li>
+        <li><a href="http://www.furidamu.org/food/">food</a></li>
+        <li><a href="http://www.furidamu.org/language-learning/">language learning</a></li>
+        <li><a href="http://www.furidamu.org/book-of-life/">book of life</a></li>
+        <li><a href="http://www.furidamu.org/publications/">publications</a></li>
+        <li><a href="http://www.furidamu.org/travel/">travel</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://www.furidamu.org">Index</a> &#124; <a href="http://www.furidamu.org/archives.html">Archives</a> &#124; <a href="http://www.furidamu.org/categories.html">Categories</a> &#124; <a href="http://www.furidamu.org/tags.html">Tags</a>
+      &#124; <a href="http://www.furidamu.org/feeds/all.atom.xml">Atom Feed</a>
+      </p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/10/21/alphago-zero/">AlphaGo Zero</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>Usually in software, version numbers tend to go up, not down. With AlphaGo Zero, we did the opposite - by taking out handcrafted human knowledge, we ended up with both a simpler and more beautiful algorithm and a stronger Go program.</p>
+<p>We provide a full description in our paper, <a href="https://www.nature.com/nature/journal/v550/n7676/full/nature24270.html">Mastering the game of Go without human knowledge</a>, which you can also <a href="http://rdcu.be/wRUY">read online</a>.</p>
+<p>At the core is a self-improvement loop based on self-play and Monte Carlo Tree Search (MCTS): We start with a randomly initialized network, then use this network in the MCTS to play the first games. The network is continuously trained on the latest played games, and recent snapshots of the network are used to play new games.</p>
+<p>Of course, the initial games will be made up of completely random moves (as the network doesn't know anything yet). However, even these random games already serve to teach the network …</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/06/18/alphago-in-china/">AlphaGo in China</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>You might have heard about our <a href="https://deepmind.com/research/alphago/alphago-china/">recent games with AlphaGo</a><sup><a href="/cache/blog_2017_06_18_alphago-in-china/deepmind.com_research_alphago_alphago-china/deepmind.com/research/alphago/alphago-china/index.html">cache</a></sup> in China, at the Future of Go summit. No only did we play the legendary Ke Jie, but there were also two new and exciting formats: Team Go and Pair Go.</p>
+<p>This match was also very exciting on the technical side because we had improved AlphaGo to the point where we ran it on <a href="https://youtu.be/Z-HL5nppBnM?t=6h3m19s">a single machine in the Google Cloud</a><sup><a href="/cache/blog_2017_06_18_alphago-in-china/youtu.be_Z-HL5nppBnM?t=6h3m19s/youtu.be/z-hl5nppbnm/index.html">cache</a></sup> - that's <a href="https://youtu.be/Z-HL5nppBnM?t=6h3m55s">one tenth of the computation power</a><sup><a href="/cache/blog_2017_06_18_alphago-in-china/youtu.be_Z-HL5nppBnM?t=6h3m55s/youtu.be/z-hl5nppbnm/index.html">cache</a></sup> compared to the distributed version we used in the last match!</p>
+<p>Personally, I also really enjoyed the Pair Go format, both when I tried it myself and watching the game with professional players.</p>
+<p>But first things first, let's start with the games against Ke Jie. As expected, these were some of the highest quality games of Go I had ever seen, really exciting to watch.</p>
+<p>Others have provided much …</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/03/26/fitbit-v3/">fitbit v3</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>Good news! My attempts with wearing the fitbit in reverse, i.e. with the sensor at the underside of my arm, were successful:</p>
+<p><a href="/images/polar_vs_fitbit_3.png"><img alt="Chart showing heart rate as measured by Polar H10 vs fitbit alta HR" src="/images/polar_vs_fitbit_3.png"/></a></p>
+<p>This time the fitbit alta HR and the Polar H10 agreed much more closely, even during an hour of running! It also correctly detected the drop in heart rate in the middle of my run when I stopped for a bit.</p>
+<p>So while not accurate enough for serious heart rate tracking during exercise (for that I still recommend a chest strap like the Polar H10), the fitbit is definitely good enough for 24/7 monitoring and more casual tracking during exercise.</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/03/25/fitbit-v2/">fitbit v2</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>As promised in the previous post, I made another attempt at getting more accurate readings from the fitbit. The good news is that wearing it tighter does seem to improve the sensor readings. The bad news is that I'm not sure if this tightness is comfortable in the long run, we'll see.</p>
+<p>The following was recorded while grocery shopping, cooking and eating Salmon Teriyaki bowls and some reading:</p>
+<p><a href="/images/polar_vs_fitbit_2.png"><img alt="Chart showing heart rate as measured by Polar H10 vs fitbit alta HR" src="/images/polar_vs_fitbit_2.png"/></a></p>
+<p>The two peaks in heart rate correspond to me walking to and from the grocery shop. Curiously the fitbit once again exaggerated my actual pulse; this time though there was definitely no stray light (I wore the fitbit tight against the skin, under a long sleeved shirt and a coat).</p>
+<p>I'll perform some more experiments tomorrow with wearing the fitbit in reverse, i.e. with the sensor against the bottom of my arm.</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/03/25/heart-rate-trackers/">Heart Rate Trackers</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>Recently I acquired one of the new fitbit alta HR bands, mainly because it promised to track my heart rate 24/7 without the need to wear any chest strap.</p>
+<p>I always expected this to be less accurate than a chest strap, but how much less? I also happen to have a Polar H10 chest strap (which I use when running), so I decided to record with both for an extended period today.</p>
+<p>The results are below (click for the full image):</p>
+<p><a href="/images/polar_vs_fitbit.png"><img alt="Chart showing heart rate as measured by Polar H10 vs fitbit alta HR" src="/images/polar_vs_fitbit.png"/></a></p>
+<p>The fitbit is in blue, the Polar strap in green. There are a few gaps in the data for the Polar strap because I recorded in parts with an app on my phone, which ran out of batter at some point.</p>
+<p>Interestingly enough the fitbit actually overestimates my heart rate. If anything, I'd have expected the opposite, because it's easier to miss heart beats with an optical sensor …</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/01/30/linux-on-the-alienware-13-r3-2017/">Linux on the Alienware 13 R3 (2017)</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>I recently bought a new laptop because my trusty old Thinkpad (x230) finally got a bit too old for my taste (apart from the battery it still works perfectly though!).</p>
+<p>After a lot of searching around and gnashing of teeth - how can current laptops be barely faster than my 4 year old Thinkpad?! And what do you mean, the laptop comes with at most 16 GB of RAM and I can't even upgrade it?!</p>
+<p>Finally, I settled on the <a href="http://www.dell.com/uk/p/alienware-13-laptop/pd?ref=PD_OC">Alienware 13</a>.</p>
+<p>As a gaming laptop, it has a quad core i7 - 7th gen Kaby Lake - and a great GPU, the GTX 1060. <a href="https://www.pcper.com/reviews/Graphics-Cards/NVIDIA-Pascal-Mobile-GTX-1080-1070-and-1060-Enter-Gaming-Notebooks">3.5 TFlops</a><sup><a href="/cache/blog_2017_01_30_linux-on-the-alienware-13-r3-2017/www.pcper.com_reviews_Graphics-Cards_NVIDIA-Pascal-Mobile-GTX-1080-1070-and-1060-Enter-Gaming-Notebooks/www.pcper.com/reviews/graphics-cards/nvidia-pascal-mobile-gtx-1080-1070-and-1060-enter-gaming-notebooks/index.html">cache</a></sup> in a laptop! Since I'm partial to a bit of machine learning, that kind of performance was very enticing. It's also fully upgradeable - 2 m2 slots for SSDs, as well as 2 SO-DIMMs for RAM.</p>
+<p>Additionally, the Alienware 13 comes with a stunning OLED …</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2017/01/28/error-handling-with-statusor/">Error handling with Status(Or)</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>I just read an <a href="http://ashtonkemerling.com/blog/2017/01/26/java-without-if/">article</a> linked on Hacker News advocating the use of <code>Either&lt;L, R&gt;</code> to signal errors in functions. While I think this is a good start, in my experience <code>Either</code> is too general, the lack of standardizing of the error value makes error handling abstractions hard. How did that file function signal again that a file was not found?</p>
+<p>What works a lot better in my experience is a more specialized type <code>Status</code>, with a standardized enum of error codes and a free form error message.</p>
+<p>Here's an excerpt from the <code>Status</code> type <a href="https://github.com/google/protobuf/blob/master/src/google/protobuf/stubs/status.h">we use at Google</a><sup><a href="/cache/blog_2017_01_28_error-handling-with-statusor/github.com_google_protobuf_blob_master_src_google_protobuf_stubs_status.h/github.com/google/protobuf/blob/master/src/google/protobuf/stubs/status.h">cache</a></sup>:</p>
+<div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">Code</span> <span class="p">{</span>
+  <span class="n">OK</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="n">CANCELLED</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="n">INVALID_ARGUMENT</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="n">DEADLINE_EXCEEDED</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="n">NOT_FOUND</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="n">ALREADY_EXISTS</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="n">PERMISSION_DENIED</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+  <span class="n">UNAUTHENTICATED</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+  <span class="n">RESOURCE_EXHAUSTED</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="n">FAILED_PRECONDITION</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span>
+  <span class="n">ABORTED</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="n">OUT_OF_RANGE</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span>
+  <span class="n">UNIMPLEMENTED</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+  <span class="n">INTERNAL</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span>
+  <span class="n">UNAVAILABLE</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span>
+  <span class="n">DATA_LOSS</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Status</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="p">...</span>
+
+  <span class="kt">bool</span> <span class="n">ok</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="nf">error_code</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">StringPiece</span> <span class="nf">error_message</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+<p>This …</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2016/10/27/tea/">Tea</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p>Tea has become my favorite beverage, bar none.</p>
+<p>With flavors stretching from light and sweet white and yellow teas all the way to dark and earthy pu-erh, no other drink can match its variety of flavor.</p>
+<p>Best enjoyed freshly brewed from whole leaves in a small pot, you need very little to start drinking great tea.</p>
+<ol>
+<li>Some hot water, from a kettle or pot, doesn't matter.</li>
+<li>A tea pot or infuser with lots of space for your tea to expand, see mine as an example:
+<img alt="my tea pot" src="/images/teapot.jpg"/></li>
+<li>Loose leaf tea!</li>
+</ol>
+<p>Some of my favorite tea includes:</p>
+<ul>
+<li><a href="http://what-cha.com/china-yunnan-dragon-pearl-black-tea/">Yunnan Dragon Pearl Black Tea</a><sup><a href="/cache/blog_2016_10_27_tea/what-cha.com_china-yunnan-dragon-pearl-black-tea/what-cha.com/china-yunnan-dragon-pearl-black-tea/index.html">cache</a></sup>, a nice black tea full of flavor but not bitter at all.</li>
+<li><a href="http://what-cha.com/china-fujian-anxi-jin-xuan-milk-oolong-tea/">Fujian Anxi 'Jin Xuan' Milk Oolong Tea</a><sup><a href="/cache/blog_2016_10_27_tea/what-cha.com_china-fujian-anxi-jin-xuan-milk-oolong-tea/what-cha.com/china-fujian-anxi-jin-xuan-milk-oolong-tea/index.html">cache</a></sup>, a smooth oolang with a light taste of mango and milk due roasting and steaming in milk.</li>
+<li><a href="http://what-cha.com/japan-obubu-dark-roast-houjicha-green-tea/">Obubu Dark Roast Houjicha Green Tea</a><sup><a href="/cache/blog_2016_10_27_tea/what-cha.com_japan-obubu-dark-roast-houjicha-green-tea/what-cha.com/japan-obubu-dark-roast-houjicha-green-tea/index.html">cache</a></sup>, roasted green tea that tastes of …</li></ul></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2016/10/03/work-rules/">Work Rules!</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p><a href="http://amzn.to/2dM5Ncu">Work Rules!</a> is the title of a great book by Laszlo Bock, SVP of People Operations at Google.</p>
+<p>It's a pretty accurate portrait of life at Google (at least from what I've seen over the last three years), and at the same time it is a great guidebook for companies that haven't yet come as far along the path of employee empowerment.</p>
+<p>If you are in any way involved with work - be it employer or employee - this is a must read, with lots of practical advice on how to improve your organization (and your life!). It may also give you a bit of an idea of why I consider Google such a great place to work, probably the best I've seen so far anywhere.</p></body></html>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="http://www.furidamu.org/blog/2016/07/30/wanikani-on-anki/">WaniKani on Anki</a></h3>
+  </div>
+  <div id="article_text">
+    <html><body><p><a href="https://www.wanikani.com/">WaniKani</a><sup><a href="/cache/blog_2016_07_30_wanikani-on-anki/www.wanikani.com/www.wanikani.com/index.html">cache</a></sup> has long been my favorite way of studying Kanji, but I've always disliked the need to type in every single reading and meaning. At 300 reviews a day that's a lot of typing!</p>
+<p>Today I finally had enough. First I considered making a user script for WaniKani to make it work a bit more like Anki (where you don't type the answer at all, you simply indicate how well you knew it with one tap). But then I realized that I might as well just use Anki directly.</p>
+<p>I quickly found <a href="https://wanikanitoanki.com/">wanikanitoanki.com</a><sup><a href="/cache/blog_2016_07_30_wanikani-on-anki/wanikanitoanki.com/wanikanitoanki.com/index.html">cache</a></sup>, which is great to export all Radicals, Kanji and Vocabulary and has really nice Anki templates too. Alas, the exported data didn't include the critical mnemonics! Presumably because these aren't returned by WaniKani's API.</p>
+<p>Luckily, WaniKani is almost trivial to scrape:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">login_page</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get …</span></pre></div></body></html>
+  </div>
+</article>
+
+    <footer>
+<p id="paginator">
+<a href="http://www.furidamu.org/index2.html" class="button_accent">&larr; Older Posts</a>
+
+</p>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Julian Schrittwieser. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>

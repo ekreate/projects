@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h2 id="top"></h2>
+    <meta charset="utf-8">
+    <title>Drop7AI</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Poppins|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <script>
+      $(window).on('load', function() {$(".se-pre-con").show();setTimeout(function() { $(".se-pre-con").fadeOut("slow"); }, 1500);});
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#navbar" data-offset="20">
+  <div class="se-pre-con"></div>
+    <script>
+      $(document).ready(function(){
+      $('a').filter(".homefade").click(function(e){redirect = $(this).attr('href');e.preventDefault();
+      $('body').fadeOut(400, function(){document.location.href = redirect});});})
+    </script>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand">Drop7AI</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav ml-auto w-100 justify-content-end">
+        <li class="nav-item"><a class="nav-link" href="#Rules">Rules & Strategy<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#Algorithm">Algorithm</a></li>
+        <li class="nav-item "><a class="nav-link" href="#Results">Results vs. Expectations</a></li>
+        <li class="nav-item "><a href="index.html" class ="nav-link homefade"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <!--<li class="nav-item "><a href="https://github.com/ekreate" class ="nav-link homefade"><i class="fa fa-github" aria-hidden="true"></i></a></li>-->
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <section id="Rules">
+    <div class="container showcase-right">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+        <h2>Drop7 - Rules and Strategy </h2>
+        <br>
+        </div>
+      </div>
+    </div>
+    <div class="container showcase-right">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <h3>Rules</h3>
+          <blockquote class="blockquote">
+            <p> The game is played on a 7x7 square grid. In each round, the player places a disc that falls from the top of the grid. Each disc has a number 1-7. Whenever the number of any disc matches the number of contiguous discs in a row or column, that disc disappears and also hits any blank discs it touches. When a blank is hit twice, it turns into a numbered disc. After 5  turns, the round ends and a full row of blank discs emerges from the bottom of the grid. The objective is to eliminate discs for as long as possible until the grid overflows.</p>
+            <footer class="blockquote-footer"><cite title="Source Title">Wikipedia</cite></footer>
+          </blockquote>
+          <a class="pull-left" id="projects" data-toggle="collapse" data-target="#collapse_wrap_rules" aria-expanded="true" aria-controls="collapse_wrap_rules"><i class="fa fa-chevron-right"></i></a>
+        </div>
+        <div class="col-md-6 col-sm-6 text-center">
+          <img class="img1" src="img/image1.jpg">
+        </div>
+      </div>
+    </div>
+    <div class="container collapse fade" id="collapse_wrap_rules">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <br>
+          <h3>Strategy</h3>
+          <p>A beginner in the game of Drop7 will try to remove as many discs as he can without thinking ahead. After several games some patterns may emerge; for example: a 7 disc contiguous to a 1 disc. The only way you can destroy the 1 is to first destroy the 7. The 7 will be destroyed only if an entire row or column is filled. To create a full column is easy, but doing so will waste discs that could help destroy blank discs. Completing a full row is hard, because most of the time the row will be fragmented. If we ignore these discs, the columns they sit on will tower and overflow the grid. This example shows how this game has no simple answers/strategy to maximize your score.</p>
+        </div>
+        <div class="col-md-6 col-sm-6 text-center">
+            <br><br><br><br>
+            <img class="img3" src="img/image3.jpg">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Algorithm" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="info-right">
+            <br><br><br>
+            <h2>Genetic Algorithm </h2>
+            <h3>Implementation And Evolution</h3>
+            <br>
+            <h3>Implementation</h3>
+            <a class="pull-left" data-toggle="collapse" data-target="#collapse_wrap" ><i class="fa fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="collapse_wrap" class= "collapse fade">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <br><br>
+          <h5>Programming Language</h5>
+          <p>I decided to rewrite the game in C on my personal computer as it provided me with an easy interface between the AI and the game.<br>Moreover I choose C and not a scripted language (e.g. Python) because of the significant speed difference in execution time.</p>
+          <br><br><br>
+          <h5>Initialization and Process</h5>
+          <p>In order to create a <i>Genetic Algorithm</i> an initial population of programs is created; for each program, we create a tree of random functions and values (values can only be in the leaves of the tree - <i>Fig.1</i>).<br>
+          After the initialization process is completed, each program plays <code>100</code> games. The number <code>100</code> has no particular meaning and was chosen as a large enough number to remove an element of <i>luck</i> in the program's ability to win.
+          After all games have concluded, a sorting algorithm is performed and the <i>best</i> programs are combined. The resulting combination is written over the <i>worst</i> programs (for more see the <i>Evolution</i> section). Each time this process is completed we get a new generation of programs. This process is done many times and the results per generation can be seen in the <i>Results vs. Expectations</i> section.</p>
+          <br>
+        </div>
+        <div class="col-md-6 col-sm-6  text-center">
+          <img class="img4" src="img/image4.png">
+          <br><br>
+          <figure class="figure">
+            <img src="img/image5.png" class="figure-img img4 img-fluid rounded" >
+            <figcaption class="figure-caption text-center"><b>Figure 1:</b> A Genetic Program tree representing max(x+x,x+3*y) <a href="#Reference"><sup><cite>[1]</cite></sup></a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="Evolution" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="info-right">
+            <br><br>
+            <h3>Evolution</h3>
+            <a class="pull-left" data-toggle="collapse" data-target="#collapse_wrap_evolution" ><i class="fa fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="collapse_wrap_evolution" class= "collapse fade">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <br><br>
+          <h5>DNA</h5>
+          <p>The <i>DNA</i> of each program is the functions and values it can choose from in order to create itself. The functions that I created for the AI to use are shown in <i>Tb.1</i>.The values it can choose from are shown in <i>Tb.2</i>, notice that values can only be <i>leaves</i> in the program tree (<i>Fig.1</i>)</p>
+          <br><br><br>
+          <h5>Selection</h5>
+          <p>First, we need to decide on parameters of defining the <i>best</i> programs, so we could combine them and hopefully get even better programs. A naïve approach would be to choose the programs that passed the most rounds. Although doing so would improve on the initial (purely random<a href="#Reference"><sup><cite>[2]</cite></sup></a>) program, the AI will quickly converge to a local maximum. The reason for this is the risk of there being no deviation between programs.<br>Essentially, the problem we want to avoid is the programs turning into <i>clones</i> of each other. <br>In order to force deviation between programs I created <code>100</code> random boards. Each program determines its next move for each board. If the program selected a move that most programs didn't, its <i>deviation score</i> increases by <code>1</code>. Thus each program can get a deviation score between <code>0</code> to <code>100</code>.</p>
+          <br>
+          <br><br><br>
+          <h5>Reproduction</h5>
+          <p>Reproduction is done by combining the <i>best</i> programs with each other. The population is sorted by a combination of the <code>devation_score</code> and the <code>max_reward</code> and the <code>20</code> programs with the best combined score are chosen. Subsequently, each of these programs are combined with the program that succeeds it. The combination process is done randomly (<i>Fig.2</i>)) and the outcomes (offspring) are written over the <code>20</code> worst programs from the previous generation.<br>The combination process works by chance; there is a 50% chance that the male program will deliver its function and a 50% that the female program will. In addition to every passing of function there is a 1% chance for the function to change entirely by <i>mutation</i>.</p>
+        </div>
+        <div class="col-md-6 col-sm-6 ">
+          <a class="list-group-item mx-auto flex-column align-items-center list-head">
+            <h4 class="list-group-item-heading">Functions</h4>
+          </a>
+          <div class="list-group mx-auto">
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Column.<br>Output: Number of contiguous discs in a row if a disc will be placed in the given column.">
+              <p class="list-group-item-text"><code>GetNumberOfDiscsinPartRow(int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Column.<br>Output: Different integer for each kind of disc(blank/broken-blank/number)">
+              <p class="list-group-item-text"><code>CheckIfLastDiscIsBlock(int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true"data-content="Input: Column and Row.<br>Output: Value of disc in the given coordinates.">
+              <p class="list-group-item-text"><code>g_ai_main_board(int, int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true"data-content="Input: Two integers.<br>Output: Summation of input.">
+              <p class="list-group-item-text"><code>Sum(int, int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Two integers.<br>Output: Subtraction of input.">
+              <p class="list-group-item-text"><code>Subtract(int, int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Two integers.<br>Output: Division of input. (division by zero is replaced by division by 1)">
+              <p class="list-group-item-text"><code>SafeDivision(int, int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Two integers.<br>Output: Multiplication of input.">
+              <p class="list-group-item-text"><code>Multiply(int, int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Two integers.<br>Output: If the first input is larger then the second one, the first one is returned incremnted by 1.">
+              <p class="list-group-item-text"><code>IfLargerThenInc(int, int)</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-html="true" data-content="Input: Two integers.<br>Output: If the two inputs equal each other return 1 else 0.">
+              <p class="list-group-item-text"><code>IfEqual(int, int)</code></p>
+            </a>
+          </div>
+          <figcaption class="figure-caption text-center"><b>Table 1:</b> Function List </figcaption>
+          <br><br>
+          <a class="list-group-item mx-auto flex-column align-items-center list-head rounded">
+            <h4 class="list-group-item-heading ">Values</h4>
+          </a>
+          <div class="list-group mx-auto">
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-content="A random value between 0 to 7.">
+              <p class="list-group-item-text"><code>curr->val</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Current column being checked.">
+              <p class="list-group-item-text"><code>col_pos</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-content="In the current column - this value is the first empty row.">
+              <p class="list-group-item-text"><code>row_pos</code></p>
+            </a>
+            <a id="popover"  class="list-group-item flex-column align-items-center list-tile"  data-trigger="hover" data-toggle="popover" data-placement="left" data-content="The current disc that the program needs to decide which column to insert it.">
+              <p class="list-group-item-text"><code>g_curr_disc</code></p>
+            </a>
+
+          </div>
+          <figcaption class="figure-caption text-center"><b>Table 2:</b> Value List </figcaption>
+          <br><br>
+          <img src="img/image6.png" class="img6 figure-img img-fluid rounded text-center" >
+          <figcaption class="figure-caption text-center"><b>Figure 2:</b> Example of a combination of programs with different sizes and shapes<a href="#Reference"><sup><cite>[3]</cite></sup></a> </figcaption>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <section id="Results" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="info-right">
+            <h2>Results vs. Expectations</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <br><br>
+          <div class="info-right">
+            <h5>Endless Possibilities</h5>
+            <p>The power of a Genetic Algorithm is its use of seemingly endless possibilities. The possibilities arise from two areas:<br><br>1) The depth of each program tree: more nodes &rarr; more functions &rarr; additional possibilities.<br>2) The number of generations it has to evolve.<br><br>I experimented with different maximum depths for the program trees, between 10 nodes deep to 15 nodes deep (1024-32,768 nodes). Surprisingly the change in the maximum depth of the nodes did not impact the final score. I now understand that after a certain depth, the randomness of the algorithm makes it hard for a large scale program to reach better results than smaller programs. There is always a chance that some random function in a specific node destroys all the calculation that was done below it, unfortunately the random switching done in mating just isn't a strong enough tool to remove all of these rogue nodes.<br><br>My initial thought when starting this project was that having large scale programs and have them <i>evolve</i> thousands of times will eventually create the optimal program to solve this game.</p>
+          </div>
+          <br><br>
+          <div class="info-right">
+            <h5>Reality</h5>
+            <p> However, because the <i>learning</i> of a program is only done by randomly picking functions between its parents, without any understanding or learning what are mistakes, no great achievements were reached. </p>
+          </div>
+          <br><br>
+          <div class="info-right">
+            <h5>Results</h5>
+            <p>My first attempt required the program to return the specific column in which it intends to put the <code>curr_disc</code> (modulo by 7, in order to insure the disc is inserted in a legal column(0-6)). The algorithm quickly entered a local optimum and never progressed. I believe that the randomness of the functions made for this sort of calculation to be extremely hard; considering how a simple +2 or -1 at the end of a program tree would change the final answer completely.</p>
+            <blockquote class="blockquote">
+              <p class=" text-center testimonial">"All problems in computer science can be solved by another level of indirection"</p>
+              <footer class="blockquote-footer"><cite title="Source Title">David Wheeler</cite></footer>
+            </blockquote>
+            <p>Instead, I required from the program to score each action (there are only 7 available actions each turn), and the highest scored action was the chosen one. This change, from choosing the correct action to just scoring each action, helped simplify the program to a simple <code>+</code> is good, <code>-</code> is bad.</p>
+            <p>The results showed a significant increase in score, and the end result was a gain of 2.3 rounds. Studying the best program in the final generation, it seems that the final score (~9) represents a basic understanding of the rules of the game. However no strategy/thinking ahead was achieved, it seems that for a truly great performance, a different approach should be taken.</p>
+          </div>
+          <br>
+          <div class="info-right">
+            <h5>Next Stage</h5>
+            <p>The next stage will be to create a neural network, thus instead of random improvements, I'll try to use gradient decent with the idea that a more controlled evolution process would result in better results. A benchmark for success will be if the program would be able to beat my personal avg. score of ~13.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6  text-center">
+          <br><br><br><br>
+          <div class="info-collapse">
+            <canvas id="ChartTwoAttempts"></canvas>
+          </div>
+            <br><br><br><br><br><br><br><br>
+          <div class="info-collapse">
+            <canvas id="ChartTwoAttemptwithDiv"></canvas>
+          </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <div class="info-collapse">
+            <canvas id="ChartFuture"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  <br><br><br>
+  <!--<section id="info2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="info-left">
+            <h2>Info Block One</h2>
+            <p>Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="info-right">
+            <h2>Info Block Two</h2>
+            <p>Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <section id="Reference" >
+    <div class="container">
+      <div class="row">
+          <h5>References</h5>
+          <p class= "reference">
+            [1]R. Poli, W. B. Langdon, and N. F. McPhee. A field guide to genetic programming. Published via http://lulu.com and freely available at http://www.gp-field-guide.org.uk, 2008. (With contributions by J. R. Koza); Figure 2.1, Page 10.<br>
+            [2] <i>Random</i> was created using libsodium by Frank Denis Copyright &copy 2013-2017 <br>
+            [3]R. Poli, W. B. Langdon, and N. F. McPhee. A field guide to genetic programming. Published via http://lulu.com and freely available at http://www.gp-field-guide.org.uk, 2008. (With contributions by J. R. Koza); Figure 5.1, Page 45.
+          </p>
+      </div>
+    </div>
+  </section>
+    <script>
+          window.sr = ScrollReveal();
+          sr.reveal('.navbar', {
+            duration: 2000,
+            origin:'top'
+          });
+          sr.reveal('.showcase-left', {
+            duration: 2000,
+            origin:'left',
+            distance:'300px'
+          });
+          sr.reveal('.showcase-right', {
+            duration: 2000,
+            origin:'right',
+            distance:'300px'
+          });
+          sr.reveal('.showcase-btn', {
+            duration: 2000,
+            delay: 2000,
+            origin:'bottom'
+          });
+          sr.reveal('.info-left', {
+            duration: 2000,
+            origin:'left',
+            distance:'300px',
+            viewFactor: 0.2
+          });
+          sr.reveal('.info-collapse', {
+            duration: 2000,
+            delay: 500,
+            origin:'background'
+          });
+          sr.reveal('.info-right', {
+            duration: 2000,
+            origin:'right',
+            distance:'300px',
+            viewFactor: 0.7
+          });
+    </script>
+    <script src="js/chartjs-plugin-deferred.min.js"></script>
+    <script>
+      var ctx = document.getElementById("ChartTwoAttempts").getContext('2d');
+      var ChartTwoAttempts = new Chart(ctx,{
+        type: 'line',
+        data: {
+          labels: [1,10,100,200,300,400,500,600,700,800,900,1000,10000],
+          datasets: [{
+            data: [6.3,6.44,6.82,6.83,6.82,6.81,6.79,6.80,6.82,6.81,6.79,6.8,6.8],
+            label: "First Attempt",
+            borderDash: [5, 5],
+            borderColor: 'rgb(54, 162, 235)',
+            pointBorderColor: 'rgb(54, 162, 235)',
+            pointBackgroundColor: 'rgb(54, 162, 235)',
+            fill: true
+          },
+          {
+            data: [7.48,7.64,7.86,8.01,8.07,8.32,8.44,8.31,8.51,8.71,8.69,8.7,8.7],
+            label: "Second Attempt",
+            borderDash: [5, 5],
+            borderColor: '#c45850',
+            pointBorderColor: '#c45850',
+            pointBackgroundColor: '#c45850',
+            fill: true
+          }
+          ]
+        },
+        options: {
+          animation: {
+            easing:'linear',
+            duration: 1500
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Avg. Rounds Passed'
+              }
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Generation #'
+              }
+            }]
+          },
+          title: {
+            display: true,
+            text: 'AI Performance Through Generations',
+            fontSize: 20
+          }
+        }
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("ChartTwoAttemptwithDiv").getContext('2d');
+      var ChartTwoAttemptwithDiv = new Chart(ctx,{
+        type: 'line',
+        data: {
+          labels: [1,10,100,200,300,400,500,600,700,800,900,1000,10000],
+          datasets: [{
+            data: [7.66,7.77,8.05,7.96,7.97,8.03,7.98,8.06,8.14,8.35,8.37,8.42,8.37],
+            label: "max_reward",
+            borderDash: [5, 5],
+            borderColor: '#2C3E50',
+            pointBorderColor: '#2C3E50',
+            pointBackgroundColor: '#2C3E50',
+            fill: true
+          },
+          {
+            data: [7.48,7.64,7.86,8.01,8.07,8.32,8.44,8.31,8.51,8.71,8.69,8.7,8.7],
+            label: "deviation_score & max_reward",
+            borderColor: 'rgb(54, 162, 235)',
+            pointBorderColor: 'rgb(54, 162, 235)',
+            pointBackgroundColor: 'rgb(54, 162, 235)',
+            fill: true
+          }
+          ]
+        },
+        options: {
+          animation: {
+            easing:'linear',
+            duration: 1500
+          },
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Avg. Rounds Passed'
+              }
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Generation #'
+              }
+            }]
+          },
+          title: {
+            display: true,
+            text: 'Performance With/Without deviation_score ',
+            fontSize: 20
+          }
+        }
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("ChartFuture").getContext('2d');
+      var ChartFuture = new Chart(ctx,{
+        type: 'line',
+        data: {
+          labels: ['Attempt #1','Attempt #2','Attempt #3'],
+          datasets: [{
+            data: [6.8,8.7,null],
+            borderColor: '#2C3E50',
+            pointBorderColor: '#2C3E50',
+            pointBackgroundColor: '#2C3E50',
+            fill: true
+          },
+          {
+            data: [null,8.7,14.2],
+            borderDash: [5, 5],
+            borderColor: 'gray',
+            pointBorderColor: 'gray',
+            pointBackgroundColor: 'gray',
+            fill: true
+          }
+        ]
+        },
+        options: {
+          animation: {
+            easing:'linear',
+            duration: 2000
+          },
+          legend:{
+            display: false
+          },
+          scales: {
+            yAxes: [{
+              ticks:{
+                min:6.3,
+                max:15,
+                stepSize: 1,
+                callback: function(value, index, values) {
+                 if (value === 13) {
+                   return '   Personal Avg. Score  ';
+                 }
+                 if (value === 6.3) {
+                   return '   Random choice   ';
+                 }
+                 return value;
+               }
+             },
+              gridLines: {
+                    color: [,,'#16A085',,,,,,,'#B03A2E'],
+                    lineWidth: [,,2,,,,,,,2]
+                }
+            }],
+          },
+          title: {
+            display: true,
+            text: 'Overall Performance',
+            fontSize: 20
+          }
+        }
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+        $("#navbar a").on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+              window.location.hash = hash;
+            });
+          }
+        });
+      });
+    </script>
+    <script>$(document).ready(function(){$('[data-toggle="popover"]').popover();});</script>
+    <script>
+      function toggleChevron(e) {$(e.target).prev().find("i.fa").toggleClass('fa-chevron-down fa-chevron-up');}
+      $('#collapse_wrap').on('hidden.bs.collapse',toggleChevron);
+      $('#collapse_wrap').on('shown.bs.collapse', toggleChevron);
+      $('#collapse_wrap_rules').on('hidden.bs.collapse',toggleChevron);
+      $('#collapse_wrap_rules').on('shown.bs.collapse', toggleChevron);
+      $('#collapse_wrap_evolution').on('hidden.bs.collapse',toggleChevron);
+      $('#collapse_wrap_evolution').on('shown.bs.collapse', toggleChevron);
+    </script>
+  </body>
+</html>
+<!--
+  <section id="testimonial">
+    <div class="container">
+      <p>"All problems in computer science can be solved by another level of indirection"</p>
+      <p class="customer">- David Wheeler </p>
+    </div>
+  </section>-->

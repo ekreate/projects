@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106192268-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-106192268-1');
+    </script>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <title>eK</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|VT323|Montserrat|Poppins|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/homestyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@3.3.6/dist/scrollreveal.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script>
+      $(window).on('load', function() {$(".se-pre-con").show();setTimeout(function() { $(".se-pre-con").fadeOut("slow"); }, 1000);});
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#navbar" data-offset="0">
+    <div class ="hide-overflow-wrapper">
+    <div class="se-pre-con"></div>
+    <script>
+      $(document).ready(function(){
+        $('a').filter(".homefade").click(function(e){redirect = $(this).attr('href');e.preventDefault();
+        $('body').fadeOut(400, function(){document.location.href = redirect});});
+      })
+    </script>
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand">ErezKlein</a>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav  justify-content-en"></ul>
+        <ul class="navbar-nav ml-auto w-100 justify-content-end">
+          <li class="nav-item"><a class="nav-link" href="#About">About me <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item "><a class="nav-link" href="#Projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Experience">My Experience</a></li>
+          <li class="nav-item "><a class="nav-link" href="#Education">Education</a></li>
+          <li class="nav-item "><a href="mailto:contact@erzkle.in" class ="nav-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+          <li class="nav-item "><a href="http://linkedin.com/in/erez-klein-b3257b97" class ="nav-link" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <section id="About">
+      <div class="About-container container info-right ">
+        <div class="row about_padding">
+          <div class="col-md-4 col-sm-4 about-title">
+            <u class="About display-4 ">About Me</u>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <p class="About lead">Hey, I'm Erez and I like solving puzzles. My background is in Electrical Engineering and firmware programming. I'm currently interested in model-free reinforcement learning to solve complex, large scale problems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <canvas id="about"></canvas>
+    <section id="Projects" >
+	     <div id="jumbo" class="jumbotron jumbotron-fluid">
+         <div class="container">
+           <div class="row">
+             <div class="info-right col-md-12 col-sm-12">
+               <h2 class="display-4 orange">Projects</h2>
+               <p class="lead white">Several projects that I've been working on in my spare time</p>
+               <a id="projects" data-toggle="collapse" data-target="#collapse_wrap"><p class=" width-text white animate ">View <i class="fa fa-arrow-right orange"></i></a></p>
+             </div>
+           </div>
+         </div>
+	     </div>
+    </section>
+    <div id="collapse_wrap" class= "collapse fade" style="background-color:white;">
+      <div class = "project">
+        <div class="container-data container">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <h3>Genetic AI - Drop7</h3>
+              <p>Drop7 is a mobile app that in order to master requires a degree of strategy. Having a large amount of board arrangements and having a small number of possibilities on each turn, made a good setting to create a Genetic Algorithm to try and beat my high score. </p>
+              <a href="drop7.html" class="btn btn-outline-primary homefade pull-right ">Read More</button></a>
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+                <div class="full-chart"><canvas id="ChartTwoAttempts"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr id="slim">
+      <div class = "project">
+        <div class="container-data container">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <h3>Nerual Netwrok AI - Drop7</h3>
+              <p>Beating Drop7 by harnesting the power of a neural network. In this project I Implement a N.E.A.T. (NeuroEvolution of Augmenting Topologies).</p>
+              <button type="button" class="btn btn-outline-secondary homefade pull-right ">Coming Soon</button></a>
+            </div>
+            <div class="col-md-6 col-sm-6 text-center">
+            <!--<img class="img" src="img/mario.png">-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	  <hr id="slim" >
+    <section id="Experience">
+	<div style="background-color:white;">
+      <div class="container-data container info-right">
+        <div class="row">
+          <div class="col-md-3 col-sm-3">
+            <h2>My Experience</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container-mini-data container info-right">
+        <div class="row">
+          <div class="col-md-7 col-sm-7">
+            <img class="logos" src="img/mellanox_logo.jpg">
+          </div>
+          <div class="col-md-5 col-sm-5">
+            <h4> F.W. Algorithms Engineer </h5>
+            <h5>Mar 2017 - present</h5>
+            <p>Currently working as a firmware algorithms engineer at Mellanox Technologies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container-mini-data container info-right">
+        <div class="row">
+          <div class="col-md-7 col-sm-7">
+            <img class="logos" src="img/celeno_logo.png">
+          </div>
+          <div class="col-md-5 col-sm-5">
+              <h4> RT Embeded Position at R&D Team </h5>
+              <h5>Aug 2015 - Mar 2017</h5>
+              <p>As part of my responsibilities I developed new features and fixed bugs in the company’s drivers. Most of the programing was done in C, on the kernel space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Education">
+      <div class="container-data container info-right">
+        <div class="row">
+          <div class="col-md-3 col-sm-3">
+            <h2>Education</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container-mini-data container info-right">
+        <div class="row">
+          <div class=" col-md-7 col-sm-7">
+            <img class="img logos" src="img/tau_logo.png" >
+          </div>
+          <div class="col-md-5 col-sm-5">
+            <h4> BSc in Electrical and Electronics Engineering </h5>
+            <h5>2014 - 2017</h5>
+            <p>Grades in chosen subjects: Advanced Lab in C (100), Data Structures and Algorithms (97), Introduction to Operating Systems (95).<br>Advanced MSc course in Designing and Analyzing Algorithms.</p>
+          </div>
+        </div>
+      </div>
+	  </div>
+    </section>
+    <footer>
+      <div class=" col-md-12 col-sm-12">
+        <p class="footer text-left">Designed by Erez Klein</p>
+      </div>
+    </footer>
+  <script>
+      window.sr = ScrollReveal();
+        sr.reveal('.navbar', {
+          duration: 2000,
+          origin:'top'
+        });
+        sr.reveal('.showcase-left', {
+          duration: 2000,
+          origin:'left',
+          distance:'300px'
+        });
+        sr.reveal('.showcase-right', {
+          duration: 2000,
+          origin:'right',
+          distance:'300px'
+        });
+        sr.reveal('.showcase-btn', {
+          duration: 2000,
+          delay: 2000,
+          origin:'bottom'
+        });
+        sr.reveal('#testimonial div', {
+          duration: 2000,
+          origin:'bottom'
+        });
+        sr.reveal('.info-left', {
+          duration: 2000,
+          origin:'left',
+          distance:'300px',
+          viewFactor: 0.2
+        });
+        sr.reveal('.info-collapse', {
+          duration: 2000,
+          origin:'background'
+        });
+        sr.reveal('.info-right', {
+          duration: 2000,
+          origin:'right',
+          distance:'300px',
+          viewFactor: 0.2
+        });
+    </script>
+    <script>
+      var ctx = document.getElementById("ChartTwoAttempts").getContext('2d');
+      var ChartTwoAttempts = new Chart(ctx,{
+        type: 'line',
+        data: {
+          labels: [1,10,100,200,300,400,500,600,700,800,900,1000,10000],
+          datasets: [{
+            data: [6.3,6.44,6.82,6.83,6.82,6.81,6.79,6.80,6.82,6.81,6.79,6.8,6.8],
+            label: "First Attempt",
+            borderDash: [5, 5],
+            borderColor: 'rgb(54, 162, 235)',
+            pointBorderColor: 'rgb(54, 162, 235)',
+            pointBackgroundColor: 'rgb(54, 162, 235)',
+            fill: true
+          },
+          {
+            data: [7.48,7.64,7.86,8.01,8.07,8.32,8.44,8.31,8.51,8.71,8.69,8.7,8.7],
+            label: "Second Attempt",
+            borderDash: [5, 5],
+            borderColor: '#c45850',
+            pointBorderColor: '#c45850',
+            pointBackgroundColor: '#c45850',
+            fill: true
+          }
+          ]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Avg. Rounds Passed'
+              }
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Generation #'
+              }
+            }]
+          },
+          title: {
+            display: true,
+            text: 'AI Performance Through Generations',
+            fontSize: 20
+          }
+        }
+      });
+    </script>
+  <script>
+  $(document).ready(function(){
+    $("#navbar a").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+          window.location.hash = hash;
+        });
+      }
+    });
+  });
+  </script>
+  <script>
+    function toggleChevron(e) {$(e.target).prev().find("i.fa").toggleClass('fa-arrow-right fa-arrow-down');}
+    $('#collapse_wrap').on('hidden.bs.collapse', toggleChevron);
+    $('#collapse_wrap').on('shown.bs.collapse', toggleChevron);
+  </script>
+  <script>
+  $(window).scroll(function(){
+    $(".About-container").css("opacity", 12 - $(window).scrollTop() / 25);});
+  </script>
+</div>
+</body>
+</html>
