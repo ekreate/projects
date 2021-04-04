@@ -66,6 +66,10 @@ h2.display-4{
   max-height: 100%;
 }
 
+.q_learning{
+  max-width: 95%;
+  max-height: 95%;
+}
 /***********About Padding Center***********/
 #about{
   padding-top: 250px;
